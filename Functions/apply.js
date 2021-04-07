@@ -1,9 +1,13 @@
 
 var slice = Array.prototype.slice;
 Function.prototype.apply = function (){
+    if (typeof this !== 'function') {
+        throw new TypeError('not funciton')
+    }
+
     var allArgs = slice.call(arguments);    
      // 未考虑node环境
-    var context = Object( allArgs[0] || (typeof window !== 'undefined' ? window : undefined ) ||  undefined);    
+    var context = Object( allArgs[0] || (typeof window !== 'undefined' ? window : undefined ));    
 
     var argsArr = [];
     for(let i=1; i< allArgs.length; i++){

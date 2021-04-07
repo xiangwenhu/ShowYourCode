@@ -9,6 +9,11 @@ function toArray(args, start){
 }
 
 Function.prototype.call = function (){
+
+    if (typeof this !== 'function') {
+        throw new TypeError('not funciton')
+    }
+
     var allArgs = toArray(arguments);    
 
     var argsArr = [];
@@ -16,7 +21,7 @@ Function.prototype.call = function (){
         argsArr.push("arguments[" + i + "]");
     }
     // 未考虑node环境
-    var  context  = Object( allArgs[0] || (typeof window !== 'undefined' ? window : undefined ) ||  undefined);   
+    var  context  = Object( allArgs[0] || (typeof window !== 'undefined' ? window : undefined ));   
 
     var originFn = context.__fn__;         
 

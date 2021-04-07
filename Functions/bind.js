@@ -1,10 +1,14 @@
 var slice = Array.prototype.slice;
 
 Function.prototype.bind = function (){
+    if (typeof this !== 'function') {
+        throw new TypeError('not funciton')
+    }    
     // 未考虑node环境    
     var allArgs = slice.call(arguments);    
-    var context = Object( allArgs[0] || (typeof window !== 'undefined' ? window : undefined ) ||  undefined);  
-    var args =  allArgs.slice(1);
+    var contextArg = allArgs.shift();
+    var context = Object( contextArg || (typeof window !== 'undefined' ? window : undefined ));  
+    var args =  allArgs;
 
     var that = this;
     return function bound(){
