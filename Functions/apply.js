@@ -2,7 +2,7 @@
 var slice = Array.prototype.slice;
 Function.prototype.apply = function (){
     if (typeof this !== 'function') {
-        throw new TypeError('not funciton')
+        throw new TypeError('not a function')
     }
 
     var allArgs = slice.call(arguments);    
