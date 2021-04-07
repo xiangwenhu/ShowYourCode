@@ -20,6 +20,9 @@ function assign(){
     for(var i= 1; i< args.length; i++){
         var obj = args[i];
         for(var p in obj){
+            if(!hasOwnProperty.call(obj, p)){
+                continue;
+            }
             result[p]  = obj[p];
         }
     }
@@ -29,7 +32,13 @@ function assign(){
 }
 
 
+function aaa(){
+    this.age = 10;
+}
 
+aaa.prototype.name = "name";
+
+var aa = new aaa();
 
 var c = {
     d: 3
@@ -39,7 +48,9 @@ var result = assign({
     a:10
 }, {
     b: 2
-},{c}, null, undefined);
+},{c}, null, undefined, {
+    aa
+});
 
 
-console.log(result, result.c  === c);
+console.log(result , JSON.stringify(result), result.c  === c);

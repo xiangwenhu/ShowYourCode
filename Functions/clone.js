@@ -1,5 +1,7 @@
 
 var slice = Array.prototype.slice;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
 
 
 function isObject(obj){
@@ -9,6 +11,7 @@ function isObject(obj){
 function isArray(arrLike){
     return Array.isArray(arrLike)
 }
+
 
 function clone(){
     // 克隆对象, 可以放到遍历里面去做
@@ -21,9 +24,13 @@ function clone(){
 
     var result =  isArray(args[0]) ? []: {};
 
+    // 可以考虑 Object.getOwnPropertyNames, Object.getOwnPropertySymbols,Object.getOwnPropertyDescriptors
     for(var i= 0; i< args.length; i++){
         var obj = args[i];
         for(var p in obj){
+            if(!hasOwnProperty.call(obj, p)){
+                continue;
+            }
             var val = obj[p];
             result[p]  = isObject (val) ? clone(val): val;
         }
@@ -32,6 +39,15 @@ function clone(){
     return result;
     
 }
+
+
+function aaa(){
+    this.age = 10;
+}
+
+aaa.prototype.name = "name";
+
+var aa = new aaa();
 
 
 var c = {
@@ -47,7 +63,15 @@ var result = clone({
     }, {
         item2: 2
     }]
-},{c}, null, undefined);
+},{c}, {
+    aa
+}, undefined, {
+    ddd: "ddd"
+});
 
 
 console.log(result, result.c  === c);
+
+
+
+
