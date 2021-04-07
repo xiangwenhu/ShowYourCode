@@ -15,7 +15,7 @@ Function.prototype.call = function (){
     for(let i=1; i< allArgs.length; i++){
         argsArr.push("arguments[" + i + "]");
     }
-
+    // 未考虑node环境
     var  context  = Object( allArgs[0] || (typeof window !== 'undefined' ? window : undefined ) ||  undefined);   
 
     var originFn = context.__fn__;         

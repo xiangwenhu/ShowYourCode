@@ -1,7 +1,8 @@
 
-const slice = Array.prototype.slice;
+var slice = Array.prototype.slice;
 Function.prototype.apply = function (){
     var allArgs = slice.call(arguments);    
+     // 未考虑node环境
     var context = Object( allArgs[0] || (typeof window !== 'undefined' ? window : undefined ) ||  undefined);    
 
     var argsArr = [];
@@ -10,7 +11,7 @@ Function.prototype.apply = function (){
     }
 
     var code = "this.call(context, " +  argsArr.join(",")  + ")";
-    const result = eval(code);
+    var result = eval(code);
     return  result;
 }
 
