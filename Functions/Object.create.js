@@ -1,6 +1,11 @@
+var hasOwnProperty = Object.prototype.hasOwnProperty;
 Object.create  = function(proto, propertyObject){
     if(typeof proto !== 'object' && typeof proto !== 'function'){
-        throw new TypeError("proto 必须是对象")
+        throw new TypeError("proto 必须是对象");
+    }
+
+    if(propertyObject !== undefined && !(typeof propertyObject == "object" && propertyObject !== null ) ){
+        throw new TypeError("propertyObject 必须是对象");
     }
 
     var F = function(){
@@ -9,11 +14,19 @@ Object.create  = function(proto, propertyObject){
     F.prototype = proto;
 
     var result = new F();
-
-    // 未处理Object.defineProperties支持的情况, 简单的就是遍历添加
+   
     // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
-    if ( proto !== null &&  propertyObject !== undefined &&  typeof Object.defineProperties === "function") {
-        Object.defineProperties(result, propertyObject);
+    if (propertyObject !== undefined ) {
+        if(typeof Object.defineProperties === "function"){
+            Object.defineProperties(result, propertyObject);
+        }else {
+            for(var p in propertyObject){
+                if(!hasOwnProperty.call(propertyObject, p)){
+                    continue;
+                }
+                Object.defineProperty(result, propertyObject[p]);
+            }
+        }
     }
     return result;
 
@@ -32,7 +45,7 @@ for(let p in a){
 }
 
 console.log(" ");
-var nullObject = Object.create(null);
+var nullObject = Object.create(null, undefined);
 for(let p in nullObject){
     console.log("p:", p , " value:", a[p]);
 }
