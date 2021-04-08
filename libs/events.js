@@ -17,13 +17,13 @@ function EventEmitter(){
 
 function validateType(type){
     if(!isKey(type)){
-        throw new SyntaxError("type不是有效的值")
+        throw new TypeError("type不是有效的值")
     }
 }
 
 function validateFn(fn){
     if(!isFunction(fn)){
-        throw new SyntaxError("fn必须是函数");
+        throw new TypeError("fn必须是函数");
     }
 }
 
