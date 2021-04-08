@@ -28,6 +28,14 @@ function clone(){
     for(var i= 0; i< args.length; i++){
         var obj = args[i];
         for(var p in obj){
+
+            // 阻止死循环 https://github.com/jquery/jquery/blob/main/src/core.js jQuery.extend 
+            //  Prevent Object.prototype pollution
+			//  Prevent never-ending loop
+			//  if ( name === "__proto__" || target === copy ) {
+			// 	 continue;
+			//  }
+
             if(!hasOwnProperty.call(obj, p)){
                 continue;
             }
