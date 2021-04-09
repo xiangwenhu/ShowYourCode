@@ -2,7 +2,7 @@
 function toArray(args, start){
     var st = start || 0;
     var arr = [];
-    for(let i = st; i< args.length; i++){
+    for(var i = st; i< args.length; i++){
         arr.push(args[i]);
     }
     return arr;
@@ -28,6 +28,7 @@ Function.prototype.call = function (){
     context.__fn__ =  this;
 
     var code = "context.__fn__(" +  argsArr.join(",")  +  ")";
+
     var result = eval(code);
 
     if(originFn){
@@ -55,15 +56,17 @@ var obj1 = {
 };
 var result = aaa.call(obj1, {
     age: 10
+},{
+    sex: 1
 });
 
-obj1.__fn__();
+// obj1.__fn__();
 
-console.log("");
-console.log("null contenxt");
+// console.log("");
+// console.log("null contenxt");
 
 
-var result = aaa.call(null);
+// var result = aaa.call(null);
 
-console.log("result", result);
+// console.log("result", result);
 

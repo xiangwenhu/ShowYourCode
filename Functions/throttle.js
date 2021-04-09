@@ -11,6 +11,12 @@ function isValidNumer(num){
 }
 
 // https://github.com/jashkenas/underscore/blob/master/underscore.js#L1099-L1138
+/**
+ * 多少时间内至多执行一次
+ * @param {*} fn 
+ * @param {*} wait 
+ * @returns 
+ */
 function throttle(fn, wait){
     if(!isNumer(wait)){
         throw new TypeError("delay 必须是大于等于0的正数");
@@ -21,8 +27,8 @@ function throttle(fn, wait){
     }
 
     var last = Date.now();
-    var context = this || null;
     return function (){
+        var context = this || null;
         var now = Date.now();
         if(now - last <= wait){
             return;

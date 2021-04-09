@@ -11,10 +11,6 @@ function isKey(key){
     return typeof key === "number" || typeof key === "string"
 }
 
-function EventEmitter(){
-    this._events = {};
-}
-
 function validateType(type){
     if(!isKey(type)){
         throw new TypeError("type不是有效的值")
@@ -26,6 +22,11 @@ function validateFn(fn){
         throw new TypeError("fn必须是函数");
     }
 }
+
+function EventEmitter(){
+    this._events = Object.create(null);
+}
+
 
 EventEmitter.prototype.on = function (type, fn){
     validateType(type);
@@ -123,3 +124,20 @@ console.log("");
 em.removeAllListeners();
 em.emit("event1", 1,2,{a:1});
 em.emit("event2", {a:2});
+
+
+var aStr = JSON.stringify({
+    a: 1,
+    b: 10
+});;
+
+var b = JSON.parse(aStr, (key, value)=>{
+    if(key === "a"){
+        return 100
+    }
+    return undefined;
+});
+
+
+console.log("b", b);
+
