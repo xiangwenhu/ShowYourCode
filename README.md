@@ -7,6 +7,10 @@
 * [assign](./Functions/assign.js)
 * [clone](./Functions/clone.js)
 * [Object.create](./Functions/Object.create.js)
+* [throttle](./Functions/throttle.js)
+* [debounce](./Functions/debounce.js)
+* [curry](./Functions/curry.js)
+* [instanceOf](./Functions/instanceOf.js)
 
 
 
