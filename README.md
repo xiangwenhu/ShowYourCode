@@ -1,20 +1,27 @@
-## 函数
+## 手写ES函数
 
-* [call](./Functions/call.js)
-* [apply](./Functions/apply.js)
-* [bind](./Functions/bind.js)
-* [new](./Functions/new.js)
-* [assign](./Functions/assign.js)
-* [clone](./Functions/clone.js)
-* [Object.create](./Functions/Object.create.js)
+* [call](./builtin/call.js)
+* [apply](./builtin/apply.js)
+* [bind](./builtin/bind.js)
+* [assign](./builtin/assign.js)
+* [Object.create](./builtin/Object.create.js)
+
+  
+## 手写函数
+* [clone](./Functions/clone.js)  
 * [throttle](./Functions/throttle.js)
 * [debounce](./Functions/debounce.js)
 * [curry](./Functions/curry.js)
 * [instanceOf](./Functions/instanceOf.js)
+* [new](./Functions/new.js)
+* [unique](./Functions/unique.js)
+
+
+## 手写ES库
 
 
 
-## 库
+## 手写库
 * [events](./libs/events.js)
 
 
