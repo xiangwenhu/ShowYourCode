@@ -5,7 +5,10 @@
 * [bind](./builtin/bind.js)
 * [assign](./builtin/assign.js)
 * [Object.create](./builtin/Object.create.js)
-
+* [Array.prototype.forEach](./builtin/Array.prototype.forEach.js)
+* [Array.prototype.every](./builtin/Array.prototype.every.js)
+* [Array.prototype.filter](./builtin/Array.prototype.filter.js)
+* [Array.prototype.some](./builtin/Array.prototype.some.js)
   
 ## 手写函数
 * [clone](./Functions/clone.js)  
@@ -15,6 +18,7 @@
 * [instanceOf](./Functions/instanceOf.js)
 * [new](./Functions/new.js)
 * [unique](./Functions/unique.js)
+* [sleep](./Functions/sleep.js)
 
 
 ## 手写ES库
