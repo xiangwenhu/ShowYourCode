@@ -8,6 +8,9 @@
 ### Object
 * [Object.assign](./builtin/object/Object.assign.js)
 * [Object.create](./builtin/object/Object.create.js)
+* [Object.keys](./builtin/object/Object.keys.js)
+* [Object.values](./builtin/object/Object.values.js)
+* [Object.entries](./builtin/object/Object.entries.js)
 
 ### Array
 * [Array.prototype.forEach](./builtin/array/Array.prototype.forEach.js)
