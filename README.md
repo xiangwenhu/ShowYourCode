@@ -1,14 +1,19 @@
 ## 手写ES函数
 
-* [call](./builtin/call.js)
-* [apply](./builtin/apply.js)
-* [bind](./builtin/bind.js)
-* [assign](./builtin/assign.js)
-* [Object.create](./builtin/Object.create.js)
-* [Array.prototype.forEach](./builtin/Array.prototype.forEach.js)
-* [Array.prototype.every](./builtin/Array.prototype.every.js)
-* [Array.prototype.filter](./builtin/Array.prototype.filter.js)
-* [Array.prototype.some](./builtin/Array.prototype.some.js)
+### Function
+* [Function.prototype.call](./builtin/function/Function.prototype.call.js)
+* [Function.prototype.apply](./builtin/function/Function.prototype.apply.js)
+* [Function.prototype.bind](./builtin/function/Function.prototype.bind.js)
+  
+### Object
+* [Object.assign](./builtin/object/Object.assign.js)
+* [Object.create](./builtin/object/Object.create.js)
+
+### Array
+* [Array.prototype.forEach](./builtin/array/Array.prototype.forEach.js)
+* [Array.prototype.every](./builtin/array/Array.prototype.every.js)
+* [Array.prototype.filter](./builtin/array/Array.prototype.filter.js)
+* [Array.prototype.some](./builtin/array/Array.prototype.some.js)
   
 ## 手写函数
 * [clone](./Functions/clone.js)  
