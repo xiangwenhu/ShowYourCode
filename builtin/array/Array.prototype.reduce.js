@@ -1,0 +1,43 @@
+Array.prototype.reduce = function (cb, initialValue) {
+    if (typeof cb !== "function") {
+        throw new TypeError(cb, " is not  a function");
+    }
+
+    // 检查是否传入初始值
+    var hasInitValue = arguments.length > 1;
+    console.log("hasInitValue", hasInitValue)
+    var arr = hasInitValue ? [initialValue].concat(this) : this;
+
+    console.log(arr);
+    console.log("-------")
+    var pre = arr[0];
+    for (var i = 1; i < arr.length; i++) {
+        pre = cb.apply(null, [pre, arr[i], hasInitValue ? i - 1 : i, this]);
+    }
+
+    return pre;
+};
+
+
+
+
+var re = [1, 2, 3].reduce(function (pre, cur, index, arr) {
+
+    console.log(pre, cur, index, arr);
+
+    return pre + cur
+
+})
+
+console.log("re", re);
+
+// 1 2 1 [ 1, 2, 3 ]
+// 3 3 2 [ 1, 2, 3 ]
+// re 6
+
+// -10 1 0 [ 1, 2, 3 ]
+// -9 2 1 [ 1, 2, 3 ]
+// -7 3 2 [ 1, 2, 3 ]
+// re -4
+
+

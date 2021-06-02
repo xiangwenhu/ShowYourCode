@@ -17,7 +17,9 @@
 * [Array.prototype.every](./builtin/array/Array.prototype.every.js)
 * [Array.prototype.filter](./builtin/array/Array.prototype.filter.js)
 * [Array.prototype.some](./builtin/array/Array.prototype.some.js)
-  
+* [Array.prototype.map](./builtin/array/Array.prototype.map.js)
+* [Array.prototype.reduce](./builtin/array/Array.prototype.reduce.js)
+*   
 ## 手写函数
 * [clone](./Functions/clone.js)  
 * [throttle](./Functions/throttle.js)
