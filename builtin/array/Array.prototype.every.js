@@ -14,7 +14,7 @@ Array.prototype.every = function (callback, thisArg) {
             if (!pass) {
                 return pass;
             }
-        }
+        }        
     }
     return pass;
 }

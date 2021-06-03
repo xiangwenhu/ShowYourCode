@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Functions\\Object.create.js"
+            "program": "${workspaceFolder}\\builtin\\array\\Array.prototype.reduce.js"
         }
     ]
 }

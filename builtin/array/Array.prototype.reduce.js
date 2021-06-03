@@ -1,5 +1,4 @@
 
-
 /**
  * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
  * @param {*} cb 
@@ -16,17 +15,41 @@ Array.prototype.reduce = function (cb, initialValue) {
     console.log("hasInitValue", hasInitValue)
     var arr = hasInitValue ? [initialValue].concat(this) : this;
 
-    console.log(arr);
-    console.log("-------")
-    var pre = arr[0];
-    for (var i = 1; i < arr.length; i++) {
-        pre = cb.apply(null, [pre, arr[i], hasInitValue ? i - 1 : i, this]);
+
+    var k = 0;
+    var obj = Object(this);
+    var len = obj.length;
+    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#polyfill
+    var pre;
+    if (hasInitValue) {
+        pre = arr[0];
+    } else {
+        // 检查空数组
+        while (k < len && !(k in obj)) {
+            k++;
+        }
+
+        // 3. If len is 0 and initialValue is not present,
+        //    throw a TypeError exception.
+        if (k >= len) {
+            throw new TypeError('Reduce of empty array ' +
+                'with no initial value');
+        }
+        // pre赋值
+        pre = obj[k++];
+    }
+
+    // i起始数设置为k
+    for (var i = k; i < len; i++) {
+        if (i in obj) {
+            pre = cb.apply(null, [pre, obj[i],  i, this]);
+        }        
     }
 
     return pre;
 };
 
-var re = [1, 2, 3].reduce(function (pre, cur, index, arr) {
+var re = new Array(4).concat([1, 2, 3]).concat(new Array(4)).reduce(function (pre, cur, index, arr) {
 
     console.log(pre, cur, index, arr);
 
@@ -91,6 +114,6 @@ console.log(re);
 // 1070
 
 
-new Array(8).concat([1,2]).concat(new Array(4)).reduce(function(pre ,cur){
+new Array(8).concat([1, 2]).concat(new Array(4)).reduce(function (pre, cur) {
     console.log(pre, cur);
 })
