@@ -32,8 +32,9 @@
 * [Array.prototype.reduce](./builtin/array/Array.prototype.reduce.js)
   注意全部是empty项
 * [Array.prototype.reduceRight](./builtin/array/Array.prototype.reduceRight.js) 
-  
-
+* [Array.prototype.find](./builtin/array/Array.prototype.find.js)  
+* [Array.prototype.findIndex](./builtin/array/Array.prototype.findIndex.js)  
+* 
 ## 手写函数
 * [clone](./Functions/clone.js)  
 * [throttle](./Functions/throttle.js)
