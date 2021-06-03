@@ -27,7 +27,7 @@ var re = [1, 2, 3].reduce(function (pre, cur, index, arr) {
 
     return pre + cur
 
-})
+}, -10)
 
 console.log("re", re);
 
@@ -41,3 +41,19 @@ console.log("re", re);
 // re -4
 
 
+var re = [{
+    price: 10,
+    count: 1
+},{
+    price: 20,
+    count: 3
+}].reduce(function(pre, cur, index, arr){
+    console.log(pre, cur, index, arr);
+
+    return pre + cur.count * cur.price
+}, 1000)
+
+console.log(re);
+// 1000 { price: 10, count: 1 } 0 [ { price: 10, count: 1 }, { price: 20, count: 3 } ]
+// 1010 { price: 20, count: 3 } 1 [ { price: 10, count: 1 }, { price: 20, count: 3 } ]
+// 1070
