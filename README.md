@@ -19,7 +19,9 @@
 * [Array.prototype.some](./builtin/array/Array.prototype.some.js)
 * [Array.prototype.map](./builtin/array/Array.prototype.map.js)
 * [Array.prototype.reduce](./builtin/array/Array.prototype.reduce.js)
-*   
+* [Array.prototype.reduceRight](./builtin/array/Array.prototype.reduceRight.js) 
+  
+
 ## 手写函数
 * [clone](./Functions/clone.js)  
 * [throttle](./Functions/throttle.js)
@@ -32,7 +34,6 @@
 
 
 ## 手写ES库
-
 
 
 ## 手写库

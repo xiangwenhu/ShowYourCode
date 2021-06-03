@@ -18,8 +18,19 @@ Array.prototype.reduce = function (cb, initialValue) {
     return pre;
 };
 
+var re = [1, 2, 3].reduce(function (pre, cur, index, arr) {
 
+    console.log(pre, cur, index, arr);
 
+    return pre + cur
+
+})
+
+console.log("re", re);
+
+// 1 2 1 [ 1, 2, 3 ]
+// 3 3 2 [ 1, 2, 3 ]
+// re 6
 
 var re = [1, 2, 3].reduce(function (pre, cur, index, arr) {
 
@@ -30,24 +41,37 @@ var re = [1, 2, 3].reduce(function (pre, cur, index, arr) {
 }, -10)
 
 console.log("re", re);
-
-// 1 2 1 [ 1, 2, 3 ]
-// 3 3 2 [ 1, 2, 3 ]
-// re 6
-
 // -10 1 0 [ 1, 2, 3 ]
 // -9 2 1 [ 1, 2, 3 ]
 // -7 3 2 [ 1, 2, 3 ]
 // re -4
 
 
+
+
 var re = [{
     price: 10,
     count: 1
-},{
+}, {
     price: 20,
     count: 3
-}].reduce(function(pre, cur, index, arr){
+}].reduce(function (pre, cur, index, arr) {
+    console.log(pre, cur, index, arr);
+
+    return pre.count * pre.price + cur.count * cur.price
+})
+
+console.log(re);
+// { price: 10, count: 1 } { price: 20, count: 3 } 1 [ { price: 10, count: 1 }, { price: 20, count: 3 } ]
+// 70
+
+var re = [{
+    price: 10,
+    count: 1
+}, {
+    price: 20,
+    count: 3
+}].reduce(function (pre, cur, index, arr) {
     console.log(pre, cur, index, arr);
 
     return pre + cur.count * cur.price
