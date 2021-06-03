@@ -17,9 +17,7 @@ Array.prototype.map = function (cb, thisArg) {
 
 
 var arr = [1, 2, 3].concat(new Array(8)).map(function (v, i, arr) {
-
     return v + "-" + i + "-" + arr.length
-
 }, [2])
 
 console.log("arr", arr);
