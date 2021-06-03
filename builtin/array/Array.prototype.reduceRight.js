@@ -1,3 +1,5 @@
+
+// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight
 Array.prototype.reduceRight = function (cb, initialValue) {
     if (typeof cb !== "function") {
         throw new TypeError(cb, " is not  a function");

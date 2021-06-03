@@ -1,3 +1,11 @@
+
+
+/**
+ * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+ * @param {*} cb 
+ * @param {*} initialValue 
+ * @returns 
+ */
 Array.prototype.reduce = function (cb, initialValue) {
     if (typeof cb !== "function") {
         throw new TypeError(cb, " is not  a function");
@@ -81,3 +89,8 @@ console.log(re);
 // 1000 { price: 10, count: 1 } 0 [ { price: 10, count: 1 }, { price: 20, count: 3 } ]
 // 1010 { price: 20, count: 3 } 1 [ { price: 10, count: 1 }, { price: 20, count: 3 } ]
 // 1070
+
+
+new Array(8).concat([1,2]).concat(new Array(4)).reduce(function(pre ,cur){
+    console.log(pre, cur);
+})
