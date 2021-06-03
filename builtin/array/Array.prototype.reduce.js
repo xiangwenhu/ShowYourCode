@@ -12,17 +12,12 @@ Array.prototype.reduce = function (cb, initialValue) {
 
     // 检查是否传入初始值
     var hasInitValue = arguments.length > 1;
-    console.log("hasInitValue", hasInitValue)
-    var arr = hasInitValue ? [initialValue].concat(this) : this;
-
-
     var k = 0;
     var obj = Object(this);
     var len = obj.length;
-    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#polyfill
     var pre;
     if (hasInitValue) {
-        pre = arr[0];
+        pre = initialValue;
     } else {
         // 检查空数组
         while (k < len && !(k in obj)) {
@@ -76,8 +71,6 @@ console.log("re", re);
 // -9 2 1 [ 1, 2, 3 ]
 // -7 3 2 [ 1, 2, 3 ]
 // re -4
-
-
 
 
 var re = [{
