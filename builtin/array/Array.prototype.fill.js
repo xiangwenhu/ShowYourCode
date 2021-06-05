@@ -32,8 +32,6 @@ Array.prototype.fill = function (value, start, end) {
     for (var i = 0; i < len; i++) {
         if (i >= start && i < end) {
             obj[i] = value;
-        } else {
-            obj[i] = obj[i];
         }
     }
 

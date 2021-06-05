@@ -45,18 +45,18 @@ var re = new Array(4).concat([1, 2, 3]).concat(new Array(4)).reduceRight(functio
 })
 console.log("re", re);
 
-// 3 2 1 [ 1, 2, 3 ]
-// 5 1 0 [ 1, 2, 3 ]
+// 3 2 5 [ 1, 2, 3 ]
+// 5 1 4 [ 1, 2, 3 ]
 // re 6
 
 
-// var re = [1, 2, 3].reduceRight(function (pre, cur, index, arr) {
+var re = [1, 2, 3].reduceRight(function (pre, cur, index, arr) {
 
-//     console.log(pre, cur, index, arr);
+    console.log(pre, cur, index, arr);
 
-//     return pre + cur
+    return pre + cur
 
-// }, 10)
+}, 10)
 // console.log("re", re);
 // // initialValue 10
 // // 10 3 2 [ 1, 2, 3 ]
@@ -65,35 +65,35 @@ console.log("re", re);
 // // re 16
 
 
-// var re = [{
-//     price: 10,
-//     count: 1
-// }, {
-//     price: 20,
-//     count: 3
-// }].reduceRight(function (pre, cur, index, arr) {
-//     console.log(pre, cur, index, arr);
+var re = [{
+    price: 10,
+    count: 1
+}, {
+    price: 20,
+    count: 3
+}].reduceRight(function (pre, cur, index, arr) {
+    console.log(pre, cur, index, arr);
 
-//     return pre.count * pre.price + cur.count * cur.price
-// })
+    return pre.count * pre.price + cur.count * cur.price
+})
 
-// console.log(re);
+console.log(re);
 // // { price: 20, count: 3 } { price: 10, count: 1 } 0 [ { price: 10, count: 1 }, { price: 20, count: 3 } ]
 // // 70
 
 
-// var re = [{
-//     price: 10,
-//     count: 1
-// }, {
-//     price: 20,
-//     count: 3
-// }].reduceRight(function (pre, cur, index, arr) {
-//     console.log(pre, cur, index, arr);
+var re = [{
+    price: 10,
+    count: 1
+}, {
+    price: 20,
+    count: 3
+}].reduceRight(function (pre, cur, index, arr) {
+    console.log(pre, cur, index, arr);
 
-//     return pre + cur.count * cur.price
-// }, 1000)
-// console.log(re);
+    return pre + cur.count * cur.price
+}, 1000)
+console.log(re);
 // // initialValue 1000
 // // 1000 { price: 20, count: 3 } 1 [ { price: 10, count: 1 }, { price: 20, count: 3 } ]
 // // 1060 { price: 10, count: 1 } 0 [ { price: 10, count: 1 }, { price: 20, count: 3 } ]
