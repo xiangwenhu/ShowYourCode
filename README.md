@@ -34,14 +34,17 @@
 * [Array.prototype.reduceRight](./builtin/array/Array.prototype.reduceRight.js) 
 * [Array.prototype.find](./builtin/array/Array.prototype.find.js)  
 * [Array.prototype.fill](./builtin/array/Array.prototype.fill.js)  
+  
 * [Array.prototype.flat](./builtin/array/Array.prototype.flat.js)  
 * [Array.prototype.flatMap](./builtin/array/Array.prototype.flatMap.js)  
 * [Array.prototype.indexOf](./builtin/array/Array.prototype.indexOf.js)  
 * [Array.prototype.join](./builtin/array/Array.prototype.join.js)
 * [Array.prototype.pop](./builtin/array/Array.prototype.pop.js)
 * [Array.prototype.push](./builtin/array/Array.prototype.push.js)
-* [Array.prototype.reverse](./builtin/array/Array.prototype.reverse.js)
 * [Array.prototype.shift](./builtin/array/Array.prototype.shift.js)
+
+
+* [Array.prototype.reverse](./builtin/array/Array.prototype.reverse.js)
 * [Array.prototype.slice](./builtin/array/Array.prototype.slice.js)
 * [Array.prototype.sort](./builtin/array/Array.prototype.sort.js)  
 * [Array.prototype.splice](./builtin/array/Array.prototype.splice.js)
