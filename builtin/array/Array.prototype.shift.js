@@ -29,7 +29,7 @@ Array.prototype.shift = function () {
     for (var i = 1; i < len; i++) {
         keyFrom = i + "";
         keyTo = (i - 1) + "";
-        if (hasOwnProperty.call(O, key)) {
+        if (hasOwnProperty.call(O, keyFrom)) {
             O[keyTo] = O[keyFrom]
         } else {
             delete O[keyTo]
