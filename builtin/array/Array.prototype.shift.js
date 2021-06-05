@@ -31,12 +31,12 @@ Array.prototype.shift = function () {
         keyTo = (i - 1) + "";
         if (hasOwnProperty.call(O, key)) {
             O[keyTo] = O[keyFrom]
-        }else {
+        } else {
             delete O[keyTo]
         }
     }
 
-    delete O[len];
+    delete O[len - 1];
     O.length = len - 1;
     return element;
 }
