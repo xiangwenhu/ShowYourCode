@@ -21,16 +21,7 @@
 * [Array.prototype.filter](./builtin/array/Array.prototype.filter.js)
 * [Array.prototype.some](./builtin/array/Array.prototype.some.js)
 * [Array.prototype.map](./builtin/array/Array.prototype.map.js)
-  注意empty项,map之后回返回empty
-  ```js
-    var arr = [1, 2, 3].concat(new Array(8)).map(function (v, i, arr) {
-        return v + "-" + i + "-" + arr.length
-    }, [2])
-
-    console.log("arr", arr);  // arr [ '1-0-11', '2-1-11', '3-2-11', <8 empty items> ]
-  ```
 * [Array.prototype.reduce](./builtin/array/Array.prototype.reduce.js)
-  注意全部是empty项
 * [Array.prototype.reduceRight](./builtin/array/Array.prototype.reduceRight.js) 
 * [Array.prototype.find](./builtin/array/Array.prototype.find.js)  
 * [Array.prototype.fill](./builtin/array/Array.prototype.fill.js)  
