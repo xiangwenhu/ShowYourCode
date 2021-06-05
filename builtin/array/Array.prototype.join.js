@@ -1,6 +1,6 @@
 
 
-// https://262.ecma-international.org/5.1/#sec-15.4.4.5
+// // https://262.ecma-international.org/5.1/#sec-15.4.4.5
 
 /**
  * 
@@ -23,7 +23,10 @@ Array.prototype.join = function (separator) {
         return ""
     }
 
-    var result = "" + obj[0];
+    var result;
+    var element0 = obj[0];
+    result = element0 === null || element0 === undefined ? "" : element0 + "";
+
     var item;
     for (var k = 1; k < len; k++) {
         item = obj[k];
@@ -41,9 +44,9 @@ Array.prototype.join = function (separator) {
 
 
 
-const arr = [1, null, undefined, { a: 1 }, [2], [{ a: 2 }]];
+const arr = [null, 1, undefined, { a: 1 }, [2], [{ a: 2 }]];
 
 
 console.log(arr.join());
-// 1nullnullnull[object Object]null2null[object Object]
+// ,1,,[object Object],2,[object Object]
 
