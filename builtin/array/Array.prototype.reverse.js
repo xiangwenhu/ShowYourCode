@@ -1,6 +1,10 @@
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
+/**
+ * https://tc39.es/ecma262/#sec-array.prototype.reverse
+ * @returns 
+ */
 Array.prototype.reverse = function () {
 
   var O = Object(this);
