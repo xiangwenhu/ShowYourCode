@@ -62,27 +62,21 @@ Array.prototype.slice = function (start, end) {
   for (let i = st; i < ed; i++) {
     if (hasOwnProperty.call(O, i)) {
       ret.push(O[i]);
-      delete O[i];
     } else {
       ret.push(undefined);
-      delete O[i];
       delete ret[ret.length - 1]
     }
   }
-
-  // 重置长度
-  O.length = len - steps;
+ 
   return ret;
-
-
 }
 
 
 var a = [1, 2, 3, 4];
-console.log(a.slice(0, 2))  // [ 1, 2 ]
+console.log(a.slice(0, 2), a)  // [ 1, 2 ]
 
 var a = [1, 2, 3, 4];
-console.log(a.slice(0, 10))  // [ 1, 2, 3, 4 ]
+console.log(a.slice(0, 10),a)  // [ 1, 2, 3, 4 ]
 
 var a = [1, 2, 3, 4];
 console.log(a.slice(undefined, 2)) // [ 1, 2 ]
