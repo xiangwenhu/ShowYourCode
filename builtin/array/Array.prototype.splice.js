@@ -1,51 +1,101 @@
 function getNumber(num, defaultValue) {
 
-  if (num === null || num === undefined) {
-    return defaultValue || 0;
-  }
+    if (num === null || num === undefined) {
+        return defaultValue || 0;
+    }
 
-  if (typeof num === "object") {
-    return defaultValue || 0
-  }
+    if (typeof num === "object") {
+        return defaultValue || 0
+    }
 
-  var re = parseInt(num);
-  return !isNaN(re) ? re : defaultValue;
+    var re = parseInt(num);
+    return !isNaN(re) ? re : defaultValue;
 }
 
-Array.prototype.splice222 = function (start, deleteCount) {
 
-  var O = Object(this);
-  var len = O.length;
-  var args = arguments;
-  var ret = [];
-
-  var st = getNumber(start, 0);
-  if (st < 0) {
-    st = len + st;
-  }
-  var dCount = getNumber(deleteCount, len);
-  dCount = Math.max(dCount, len - start);
-
-  // 删除旧
-  if (st <= len && st >= 0) {
+var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 
-    len = len - dCount;
-  }
+/**
+ * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+ * https://tc39.es/ecma262/#sec-array.prototype.splice
+ * @param {*} start 
+ * @param {*} deleteCount 
+ * @returns 
+ */
+Array.prototype.splice = function (start, deleteCount) {
 
-  var addLen = args.length > 2 ? args.length - 2 : 0;
+    var O = Object(this);
+    var len = O.length;
+    var args = arguments;
+    var ret = [];
 
-  // 添加新元素
-  if (addLen > 0) {
-    for (var i = 2; i < args.length - 2; i++) {
-
+    var st = getNumber(start, 0);
+    if (st < 0) {
+        st = Math.max(0, len + st);
     }
-  }
+    var dCount = getNumber(deleteCount, 0);
+    dCount = dCount < 0 ? 0 : Math.min(dCount, len - st)
 
-  return ret;
+    var addCount = args.length > 2 ? args.length - 2 : 0;
+
+    var gap = addCount - dCount;
+    var newLen = len - dCount + addCount;
+
+
+    if (st <= len && st >= 0) {
+
+        var retLen = ret.length;
+
+        // 删得比加的多，前移
+        if (gap < 0) {
+            for (var i = st; i < len; i++) {
+
+                if (i < st + deleteCount) {
+                    ret[retLen] = O[i];
+                    retLen++;
+                } else {
+                    O[i + gap] = O[i]
+                    delete O[i];
+                }
+            }
+        } else {  // 删的比加的少，整体后移动   
+
+            // 倒叙移动
+            for (var i = newLen; i >= st; i--) {
+
+                if (i < st + deleteCount) {
+                    ret[retLen] = O[i];
+                    retLen++;
+                } else {
+                    O[i + gap] = O[i]
+                }
+            }
+        }
+    }
+    
+    O.length = newLen;
+
+    // 添加新元素
+    if (addCount > 0) {
+        for (var i = 0; i < args.length - 2; i++) {
+            if (hasOwnProperty.call(args, i + 2)) {
+                O[st + i] = args[i + 2];
+            }
+        }
+    }
+
+    return ret;
 }
 
 
 var a = [1, 2, 3, 4];
 
-console.log(a.splice(-1), a);
+console.log(a.splice(-100, 2, 9, 8, 7), a);
+
+    // var a = [1, 2, 3, 4];
+
+    // console.log(a.splice(-2, 2, new Array(1), ...[new Array()]), a);   // [ 3, 4 ] [ 1, 2, [ <1 empty item> ], [] ]
+
+    // var a = [1, 2, 3, 4];
+    // console.log(a.splice(5, 2, new Array(1), ...[new Array()]), a);  // [] [ 1, 2, 3, 4, [ <1 empty item> ], [] ]
