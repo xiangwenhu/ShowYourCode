@@ -37,7 +37,8 @@ Array.prototype.splice = function (start, deleteCount) {
     st = st > len - 1 ? len - 1 : st;
 
     var dCount = getNumber(deleteCount, 0);
-    dCount = dCount < 0 ? 0 : Math.min(dCount, len - st)
+    dCount < 0 ? 0 : dCount;
+    dCount > len ? len : dCount;
 
     var addCount = args.length > 2 ? args.length - 2 : 0;
 
@@ -65,7 +66,7 @@ Array.prototype.splice = function (start, deleteCount) {
         } else {  // 删的比加的少，整体后移动   
             // 倒叙移动
             for (var i = newLen; i >= st; i--) {
-                if (i < st + deleteCount) {                    
+                if (i < st + deleteCount) {
                     ret[deleteCount - retIndex - 1] = O[i];
                     retIndex++
                 } else {

@@ -37,7 +37,7 @@
 
 * [Array.prototype.reverse](./builtin/array/Array.prototype.reverse.js)
 * [Array.prototype.slice](./builtin/array/Array.prototype.slice.js)
-* [Array.prototype.sort](./builtin/array/Array.prototype.sort.js)  
+* [Array.prototype.sort](./builtin/array/Array.prototype.sort.js)  // TODO  
 * [Array.prototype.splice](./builtin/array/Array.prototype.splice.js)
 * [Array.prototype.unshift](./builtin/array/Array.prototype.unshift.js)
   
