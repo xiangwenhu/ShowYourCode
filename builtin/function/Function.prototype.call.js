@@ -1,37 +1,29 @@
-
-function toArray(args, start){
-    var st = start || 0;
-    var arr = [];
-    for(var i = st; i< args.length; i++){
-        arr.push(args[i]);
-    }
-    return arr;
-}
-
 Function.prototype.call = function (){
-
     if (typeof this !== 'function') {
         throw new TypeError('not funciton')
     }
-
-    var allArgs = toArray(arguments);    
-
+    
     var argsArr = [];
-    for(let i=1; i< allArgs.length; i++){
+    for(let i=1; i< arguments.length; i++){
         argsArr.push("arguments[" + i + "]");
     }
-    // 未考虑node环境
-    var  context  = Object( allArgs[0] || (typeof window !== 'undefined' ? window : undefined ));   
 
-    var originFn = context.__fn__;         
+    // 未考虑node环境
+    var  context  = Object(arguments[0] || window);   
+
+    // 保留现场
+    var hasFn = ("__fn__" in context);
+    var originFn;
+    if(hasFn){
+       originFn = context.__fn__
+    };    
 
     context.__fn__ =  this;
 
     var code = "context.__fn__(" +  argsArr.join(",")  +  ")";
-
     var result = eval(code);
 
-    if(originFn){
+    if(hasFn){
         context.__fn__ = originFn
     }else {
         delete context.__fn__;
@@ -60,7 +52,7 @@ var result = aaa.call(obj1, {
     sex: 1
 });
 
-// obj1.__fn__();
+obj1.__fn__();
 
 // console.log("");
 // console.log("null contenxt");
